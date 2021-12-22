@@ -6,5 +6,27 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  name: string = 'I love Angular';
+  name1: string = 'I love Angular';
+
+  states = [
+    {
+      id: 1,
+      sname: 'chandrapur'
+    },
+    {
+      id: 2,
+      sname: 'kathmandu'
+    },
+    {
+      id: 3,
+      sname: 'bhaktapur'
+    }
+  ];
+
+  onAdd(){
+    this.states.push({
+      id:4,
+      sname: 'lalitpur'
+    });
+  }
 }

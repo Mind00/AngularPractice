@@ -1,4 +1,65 @@
-{{name}}
-<p>
-  Start editing to see some magic happen :)
-</p>
+{{ name1 }}
+<div class="container">
+  <div class="row">
+    <div class="col md-4">
+      <small class="text-danger">practicing some exercise</small>
+    </div>
+  </div>
+  <hr />
+  <form>
+    <div class="form-row">
+      <div class="col">
+        <label for="firstname">FirstName</label>
+        <input type="text" class="form-control" placeholder="First name" />
+        <small class="text-danger">This field is mandatory</small>
+      </div>
+      <div class="col">
+        <label for="lastname">LastName</label>
+        <input type="text" class="form-control" placeholder="Last name" />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col">
+        <label for="address">Address</label>
+        <input type="text" class="form-control" placeholder="address" />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col">
+        <label for="gender">Gender</label><br />
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="inlineRadio1"
+            value="option1"
+          />
+          <label class="form-check-label" for="inlineRadio1">Male</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="inlineRadioOptions"
+            id="inlineRadio2"
+            value="option2"
+          />
+          <label class="form-check-label" for="inlineRadio2">Female</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="inputState">State</label>
+        <select class="form-control">
+          <option selected disabled>choose a states</option>
+          <option *ngFor="let state of states" [value]="state.id">
+            {{ state.sname }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <button class="btn btn-success" (click)="onAdd()">Add</button>
+  </form>
+</div>
