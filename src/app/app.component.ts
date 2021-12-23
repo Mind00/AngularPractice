@@ -16,7 +16,8 @@ this.reactiveForm = new FormGroup({
     'lastname': new FormControl('null', [Validators.required]),
     'address': new FormControl('', Validators.required)
   }),
-  'gender': new FormControl('Male', Validators.required),
+  'gender': 
+    new FormControl('Male', Validators.required),
   'state': new FormControl('', Validators.required)
 })
 
