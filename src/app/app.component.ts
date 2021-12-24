@@ -54,6 +54,6 @@ export class AppComponent implements OnInit {
 
    onAdd() {
     console.log(this.reactiveForm);
-    this.list.push(this.reactiveForm));
+    
   }
 }
