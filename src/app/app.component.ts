@@ -6,40 +6,39 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
+  reactiveForm: FormGroup;
+  ngOnInit(): void {
+    this.reactiveForm = new FormGroup({
+      'userBasic': new FormGroup({
+        'firstname': new FormControl('udgam', { validators: [Validators.required] }),
+        'lastname': new FormControl('null', [Validators.required]),
+        'address': new FormControl('', Validators.required),
+      }),
+      'gender': new FormGroup({
+        'male': new FormControl('Male', Validators.required),
+        'female': new FormControl('', Validators.required),
+      }),
 
-  reactiveForm : FormGroup
-ngOnInit(): void {
-this.reactiveForm = new FormGroup({
-  'userBasic': new FormGroup({
-    'firstname':  new FormControl('', {validators:[Validators.required]}),
-    'lastname': new FormControl('null', [Validators.required]),
-    'address': new FormControl('', Validators.required)
-  }),
-  'gender': 
-    new FormControl('Male', Validators.required),
-  'state': new FormControl('', Validators.required)
-})
-
-}
+      'state': new FormControl('', Validators.required),
+    });
+  }
   name1: string = 'I love Angular';
 
   states = [
     {
       id: 1,
-      sname: 'chandrapur'
+      sname: 'chandrapur',
     },
     {
       id: 2,
-      sname: 'kathmandu'
+      sname: 'kathmandu',
     },
     {
       id: 3,
-      sname: 'bhaktapur'
-    }
+      sname: 'bhaktapur',
+    },
   ];
 
-  onAdd(){
-    
-  }
+  onAdd() {}
 }
