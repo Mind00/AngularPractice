@@ -8,11 +8,12 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class AppComponent implements OnInit {
   reactiveForm: FormGroup;
-  ngOnInit(): void {
+  list:[];
+  ngOnInit(){
     this.reactiveForm = new FormGroup({
       'userBasic': new FormGroup({
-        'firstname': new FormControl('udgam', { validators: [Validators.required] }),
-        'lastname': new FormControl('null', [Validators.required]),
+        'firstname': new FormControl('uttam', { validators: [Validators.required] }),
+        'lastname': new FormControl('', [Validators.required]),
         'address': new FormControl('', Validators.required),
       }),
       'gender': new FormGroup({
@@ -20,7 +21,7 @@ export class AppComponent implements OnInit {
         'female': new FormControl('', Validators.required),
       }),
 
-      'state': new FormControl('', Validators.required),
+      'state': new FormControl('chandrapur', Validators.required),
     });
   }
   name1: string = 'I love Angular';
@@ -40,5 +41,19 @@ export class AppComponent implements OnInit {
     },
   ];
 
-  onAdd() {}
+  genderList = [{
+    id:1,
+    gName:'Male'
+  },
+{
+  id:2,
+  gName:'Female'
+}
+];
+
+
+   onAdd() {
+    console.log(this.reactiveForm);
+    this.list.push(this.reactiveForm));
+  }
 }

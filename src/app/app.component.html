@@ -6,53 +6,42 @@
     </div>
   </div>
   <hr />
-  <form [formGroup]="reactiveForm">
+  <form [formGroup]="reactiveForm" (ngSubmit)="onAdd()">
+    <div formGroupName="userBasic">
     <div class="form-row">
-      <div class="col">
-        <label for="firstname">FirstName</label>
-        <input type="text" class="form-control" placeholder="First name" formControlName="userBasic.firstname"/>
-        <small class="text-danger">This field is mandatory</small>
-      </div>
-      <div class="col">
-        <label for="lastname">LastName</label>
-        <input type="text" class="form-control" placeholder="Last name" />
-      </div>
+    <div class="col">
+      <label for="firstname">FirstName</label>
+      <input type="text" class="form-control" placeholder="First name" formControlName="firstname"/>
+      <small class="text-danger" *ngIf="!reactiveForm.get('userBasic.firstname').valid && reactiveForm.get('userBasic.firstname').touched">This field is mandatory</small>
     </div>
-    <div class="form-row">
-      <div class="col">
-        <label for="address">Address</label>
-        <input type="text" class="form-control" placeholder="address" />
-      </div>
+    <div class="col">
+      <label for="lastname">LastName</label>
+      <input type="text" class="form-control" placeholder="Last name" />
     </div>
-    <div class="form-row">
-      <div class="col">
-        <label for="gender">Gender</label><br />
-        <div class="form-check form-check-inline">
-          <input
-            class="form-check-input"
-            type="radio"
-            formControlName="gender.male"
-            value="Male"
-          />
-          <label class="form-check-label" for="inlineRadio1">Male</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input
-            class="form-check-input"
-            type="radio"
-            formControlName="gender.female"
-            value="Female"
-          />
-          <label class="form-check-label" for="inlineRadio2">Female</label>
-        </div>
-      </div>
+  </div>
+  <div class="form-row">
+    <div class="col">
+      <label for="address">Address</label>
+      <input type="text" class="form-control" placeholder="address" />
     </div>
+  </div>
+    </div>
+    <div formGroupName="gender"> 
+      <div class="form-group">
+      <div class="custom-control custom-radio" *ngFor="let gender of genderList">
+      <input type="radio" id="{{gender.id}}" formControlName="male" value="{{gender.gName}}" class="custom-control-input">
+      <label for="{{gender.id}}" class="custom-control-label">
+        {{gender.gName}}</label> 
+      </div>
+      </div>
+</div>
+    
     <div class="form-row">
       <div class="form-group col-md-4">
         <label for="inputState">State</label>
-        <select class="form-control">
+        <select class="form-control" formControlName="state">
           <option selected disabled>choose a states</option>
-          <option *ngFor="let state of states" [value]="state.id">
+          <option *ngFor="let state of states" value="{{state.sname}}">
             {{ state.sname }}
           </option>
         </select>
