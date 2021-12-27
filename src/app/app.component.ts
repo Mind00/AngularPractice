@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ViewchildComponent } from './viewchild/viewchild.component';
 
 @Component({
   selector: 'my-app',
@@ -21,10 +22,12 @@ export class AppComponent implements OnInit {
         'female': new FormControl('', Validators.required),
       }),
 
-      'state': new FormControl('chandrapur', Validators.required),
+      'state': new FormControl('choose a states', Validators.required),
     });
   }
   name1: string = 'I love Angular';
+  mesg;
+  @ViewChild('child') public child: ViewchildComponent;
 
   states = [
     {
@@ -55,5 +58,11 @@ export class AppComponent implements OnInit {
    onAdd() {
     console.log(this.reactiveForm);
     
+  }
+  
+
+  sendData(){
+    this.mesg = "data is sending form Parent compoenent Using Input";
+    this.child.viewChildMsg = "this is coming from Parent Using ViewChild"
   }
 }
