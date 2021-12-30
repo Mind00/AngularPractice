@@ -2,6 +2,21 @@ p {
   font-family: Lato;
 }
 
-.text-danger{
+.text-danger {
   color: red;
+}
+
+.input-child {
+  border: 2;
+  color: brown;
+}
+
+.viewchild {
+  border: 2;
+  color: rgb(235, 231, 16);
+}
+
+.ngcontainer {
+  border: 2;
+  color: green;
 }

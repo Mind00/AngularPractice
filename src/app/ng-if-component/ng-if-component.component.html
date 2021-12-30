@@ -1,0 +1,10 @@
+<button type="button" class="btn btn-success" (click)="isClick()">click me</button>
+<br>
+<div *ngIf="isClicked; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock> 
+<p>this is then quotes</p>
+</ng-template>
+<ng-template #elseBlock>
+<p>this is else quotes</p>
+</ng-template>
+

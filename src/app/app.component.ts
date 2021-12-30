@@ -29,6 +29,8 @@ export class AppComponent implements OnInit {
   mesg;
   @ViewChild('child') public child: ViewchildComponent;
 
+date = new Date();
+
   states = [
     {
       id: 1,

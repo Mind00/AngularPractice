@@ -3,6 +3,9 @@
   <div class="row">
     <div class="col md-4">
       <small class="text-danger">practicing some exercise</small>
+      <p>short date Using Pipe:  <strong>{{date | date:'d/M/Y'}}</strong></p>
+      <small>Pipe| shortTime: <strong>{{date | date:'shortTime'}}</strong></small>
+     
     </div>
   </div>
   <hr />
@@ -51,7 +54,16 @@
   </form>
 </div>
 <hr color="red">
+<button type="button" class="btn btn-success" (click)="sendData()">Send</button><br>
+
 <h4>List Table</h4>
-<button type="button" class="btn btn-success" (click)="sendData()">Send</button>
+<div class="input-child">
 <app-input [inputProperty] = "mesg"></app-input>
+</div>
+<div class="viewchild">
 <app-viewchild #child></app-viewchild>
+</div>
+<div class="ngcontainer">
+<app-ng-if-component></app-ng-if-component>
+</div>
+
